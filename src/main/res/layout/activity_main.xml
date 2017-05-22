@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mymvp2.view.activity.MainActivity">
+
+    <ImageView
+        android:id="@+id/main_image"
+        android:src="@mipmap/tw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="22dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/colorAccentred">
+
+    <ImageView
+        android:id="@+id/frist_title"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:src="@mipmap/small"/>
+
+    <EditText
+        android:layout_marginLeft="50dp"
+        android:drawableLeft="@mipmap/abl"
+        android:hint="搜你想搜的"
+        android:layout_width="240dp"
+        android:layout_height="30dp"
+        android:background="@drawable/sousou"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp" />
+
+</RelativeLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/frist_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="#ADBE107E"
+        app:tabMode="scrollable"
+        android:layout_weight="1"/>
+
+    <ImageView
+        android:id="@+id/frist_igv"
+
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ado"
+         />
+</LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/frist_vpr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>
