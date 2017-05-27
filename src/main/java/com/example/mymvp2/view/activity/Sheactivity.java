@@ -46,6 +46,13 @@ public class Sheactivity extends Activity {
             public void onClick(View v) {
                 UMShareAPI.get(Sheactivity.this).deleteOauth(Sheactivity.this, SHARE_MEDIA.QQ,null);
                 Toast.makeText(Sheactivity.this, "授权取消", Toast.LENGTH_SHORT).show();
+
+                SharedPreferences ddd = getSharedPreferences("lala", MODE_PRIVATE);
+                ddd.edit().putBoolean("jiaa",true).commit();
+
+
+                SharedPreferences qq = getSharedPreferences("QQ", MODE_PRIVATE);
+                qq.edit().clear().commit();
             }
         });
 

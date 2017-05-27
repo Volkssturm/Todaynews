@@ -80,19 +80,56 @@ public class MeFg extends Fragment implements View.OnClickListener{
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initview();
-        relativeLayout1.setVisibility(View.VISIBLE);
+        //relativeLayout1.setVisibility(View.VISIBLE);
         initdata();
 
-//        SharedPreferences qq = getActivity().getSharedPreferences("QQ", MODE_PRIVATE);
-//        boolean frist2=qq.getBoolean("状态",false);
-//        if (frist2==true){
-//            relativeLayout1.setVisibility(View.GONE);
-//            relativeLayout2.setVisibility(View.VISIBLE);
-//            String tou=qq.getString("头像","");
-//            x.image().bind(mMedenglu,tou);
-//            String name=qq.getString("昵称","");
-//            mMeUser_name.setText(name);
-//        }
+        SharedPreferences qq = getActivity().getSharedPreferences("QQ", MODE_PRIVATE);
+        boolean frist2=qq.getBoolean("状态",false);
+        if (frist2==true){
+            relativeLayout1.setVisibility(View.GONE);
+            relativeLayout2.setVisibility(View.VISIBLE);
+
+            String tou=qq.getString("头像","");
+            x.image().bind(mMedenglu,tou);
+
+            String name=qq.getString("昵称","");
+            mMeUser_name.setText(name);
+        }else {
+            relativeLayout2.setVisibility(View.GONE);
+            relativeLayout1.setVisibility(View.VISIBLE);
+
+        }
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                SharedPreferences qq = getActivity().getSharedPreferences("QQ", MODE_PRIVATE);
+                boolean frist1=qq.getBoolean("状态",false);
+                if (frist1==true){
+                    relativeLayout1.setVisibility(View.GONE);
+                    relativeLayout2.setVisibility(View.VISIBLE);
+                    String tou=qq.getString("头像","");
+                    x.image().bind(mMedenglu,tou);
+                    String name=qq.getString("昵称","");
+                    mMeUser_name.setText(name);
+                }
+
+            }
+        },500);
+        SharedPreferences ddd = getActivity().getSharedPreferences("lala", MODE_PRIVATE);
+        boolean isfrist=ddd.getBoolean("jiaa",false);
+
+        if (isfrist==true){
+            relativeLayout2.setVisibility(View.GONE);
+            relativeLayout1.setVisibility(View.VISIBLE);
+        }
+
+
     }
 
     private void initdata() {
@@ -177,6 +214,7 @@ public class MeFg extends Fragment implements View.OnClickListener{
         });
     }
 
+
     private void initview() {
         rootView = getView();
         mMePhone = (ImageView) rootView.findViewById(R.id.me_phone);
@@ -216,6 +254,9 @@ public class MeFg extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.me_phone:
+
+
+
                 break;
             case R.id.me_rd3:
                 UiUtils.switchAppTheme(getActivity());
@@ -227,26 +268,6 @@ public class MeFg extends Fragment implements View.OnClickListener{
             case R.id.me_qq:
                 Intent in=new Intent(getActivity(),QQactivity.class);
                 startActivity(in);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        SharedPreferences qq = getActivity().getSharedPreferences("QQ", MODE_PRIVATE);
-                        boolean frist1=qq.getBoolean("状态",false);
-                        if (frist1==true){
-                            relativeLayout1.setVisibility(View.GONE);
-                            relativeLayout2.setVisibility(View.VISIBLE);
-                            String tou=qq.getString("头像","");
-                            x.image().bind(mMedenglu,tou);
-                            String name=qq.getString("昵称","");
-                            mMeUser_name.setText(name);
-                        }
-
-                    }
-                },2000);
-
-
-
-
                 break;
             case R.id.me_sina:
                 break;

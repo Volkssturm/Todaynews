@@ -141,13 +141,9 @@ public void reload() {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        SharedPreferences lagion = getSharedPreferences("denglu", MODE_PRIVATE);
-        boolean frist=lagion.getBoolean("frist",false);
-        if (frist==true){
-            MeFg meFg=new MeFg();
-            meFg.relativeLayout1.setVisibility(View.VISIBLE);
-           meFg. relativeLayout2.setVisibility(View.GONE);
-        }
+        SharedPreferences ddd = getSharedPreferences("lala", MODE_PRIVATE);
+        ddd.edit().clear().commit();
+
     }
 
 

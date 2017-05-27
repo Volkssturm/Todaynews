@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
@@ -55,16 +56,6 @@ public class QQactivity extends Activity {
                 edit.putString("昵称",nicheng);
                 edit.putBoolean("状态",true);
                 edit.commit();
-                if (string.equals("province")) {
-                }
-                if (string.equals("city")) {
-                }
-                if (string.equals("gender")) {
-                }
-                if (string.equals("uid")) {
-                }
-                if (string.equals("yellow_vip_level")) {
-                }
 
             }
             String tou= qq.getString("头像","");
@@ -105,7 +96,13 @@ public class QQactivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
             Log.e("onActivityResult: ", "sg发光时代"+data);
-            finish();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    finish();
+                }
+            },1000);
+
     }
 
 }

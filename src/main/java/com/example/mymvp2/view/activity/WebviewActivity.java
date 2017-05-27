@@ -1,6 +1,7 @@
 package com.example.mymvp2.view.activity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -69,6 +70,12 @@ public class WebviewActivity extends Activity {
         setTheme(theme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.webviewactivity);
+        final ProgressDialog progressDialog=new ProgressDialog(this);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);// 设置进度条的形式为圆形转动的进度条
+        progressDialog.setMessage("玩命加载中.....");
+        progressDialog.show();
+
+
         WebView web= (WebView) findViewById(R.id.web_web);
         Button but= (Button) findViewById(R.id.web_but);
         Intent intent=getIntent();
@@ -91,7 +98,7 @@ public class WebviewActivity extends Activity {
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 //当页面加载完毕的时候，会调用该方法
-
+            progressDialog.dismiss();
             }
 
         });
